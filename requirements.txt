@@ -8,4 +8,5 @@ mercantile
 pillow
 rasterio
 requests
-
+pyproj
+contextily
