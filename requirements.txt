@@ -8,3 +8,4 @@ mercantile
 pillow
 rasterio
 requests
+contextily
