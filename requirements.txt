@@ -6,4 +6,5 @@ rasterio
 requests
 pandas
 geopandas 
+pyproj
 contextily
