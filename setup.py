@@ -8,6 +8,7 @@ install_requires = [t.strip() for t in tests_require]
 with open('README.md') as f:
     long_description = f.read()
 
+"""
 setup(name='movingpandas',
       version='1.0.rc1',
       description='Trajectory handling based on GeoPandas',
@@ -31,3 +32,4 @@ setup(name='movingpandas',
       python_requires='>=3.5',
       install_requires=install_requires,
       zip_safe=False)
+"""
