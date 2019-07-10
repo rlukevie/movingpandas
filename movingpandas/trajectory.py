@@ -61,6 +61,17 @@ class Trajectory():
             self.df.geometry.count(), self.id, self.get_start_time(),
             self.get_end_time(), line.wkt[:100], self.get_bbox(), self.get_length())
 
+    def _to_line_df(self):
+        line_df = self.df.copy()
+        line_df['prev_pt'] = line_df['geometry'].shift()
+        line_df['t'] = traj.df.index
+        line_df['prev_t'] = line_df['t'].shift()
+        line_df['line'] = line_df.apply(_connect_points, axis=1)
+        return line_df.set_geometry('line')[1:]
+    
+    def plot(self, figsize=(9,9), linewidth=3.0):
+        self._to_line_df().plot(figsize, linewidth)
+    
     def set_crs(self, crs):
         """Set coordinate reference system of Trajectory using string of SRID."""
         self.crs = crs
